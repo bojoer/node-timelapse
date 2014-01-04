@@ -4,7 +4,7 @@ var timelapse = require('./timelapse.js');
 var urlOptions = {
     host: '192.168.1.64', 
     port: 8080,
-	path: '/shot.jpg'
+    path: '/shot.jpg'
 }
 
 var interval = 1000;
@@ -20,9 +20,9 @@ var imageFormat = 'image%05d.jpg';
 
 // Wrap-up
 function createVideoAndDeleteImages() {
-	timelapse.createVideo(imageDirectory, imageFormat, videoDirectory, fps, function(err){
-		timelapse.removeImages(imageDirectory);
-	});	
+    timelapse.createVideo(imageDirectory, imageFormat, videoDirectory, fps, function(err){
+        timelapse.removeImages(imageDirectory);
+    }); 
 }
 
 //Start
@@ -31,6 +31,6 @@ var interval_id = timelapse.snapShotUrl(urlOptions, interval, numberOfShots, ima
 // To allow the user to cancel a timelapse and interrupt the setInterval
 // var stdin = process.openStdin();
 // stdin.on('data', function(chunk) { 
-// 	clearInterval(interval_id);
-// 	createVideoAndDeleteImages()
+//  clearInterval(interval_id);
+//  createVideoAndDeleteImages()
 // });

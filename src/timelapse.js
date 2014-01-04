@@ -43,23 +43,23 @@ function snapShotUrl(urlOptions, interval, numberOfShots, imageDirectory, callba
 }
 
 function createVideo(imageDirectory, imageFormat, videoDirectory, fps, callback) {
-    console.log(videoDirectory + '' + String(Date()) + '.m4v');
-  var proc = new ffmpeg({source: imageDirectory + imageFormat})
+    var proc = new ffmpeg({source: imageDirectory + imageFormat})
     .withFps(fps)
     .saveToFile(videoDirectory + '' + String(Date()) + '.m4v', function(retcode, error){
         callback(null)
     });
-  return proc;
+    return proc;
 }
 
-function removeImages(imageDirectory) {
+function removeImages(imageDirectory, callback) {
     fs.readdir(imageDirectory, function(err, files) {
         for(var i in files) {
-            var file = files[i]
+            var file = files[i];
             fs.unlink(imageDirectory + file, function(err) {
                 if(err) {
                     console.log('Unable to remove image: ' + err);
                 }
+                callback(err);
             });
         }
     });

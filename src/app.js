@@ -21,7 +21,7 @@ var imageFormat = 'image%05d.jpg';
 // Wrap-up
 function createVideoAndDeleteImages() {
     timelapse.createVideo(imageDirectory, imageFormat, videoDirectory, fps, function(err){
-        timelapse.removeImages(imageDirectory);
+        timelapse.removeImages(imageDirectory, function(err) {});
     }); 
 }
 

@@ -1,14 +1,18 @@
 {
   "dependencies": {
     "fluent-ffmpeg": "*",
-    "path": "*"
+    "path": "*",
+    "underscore": "*"
   },
   "devDependencies": {
     "mocha": "*",
     "node-inspector": "*",
     "should": "*",
     "istanbul": "*",
-    "sinon": "*"
+    "randomstring": "*",
+    "sinon": "*",
+    "mkdirp": "*",
+    "rimraf": "*"
   },
   "scripts": {
     "test": "node_modules/.bin/mocha -G",
